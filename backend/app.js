@@ -7,6 +7,8 @@ const morgan =require('morgan')
 const cors = require('cors')
 const connectDB = require('./connection')
 const eventRoute = require('./routes/eventRoute')
+const userRoute=require("./routes/userRoute")
+const authRoute=require("./routes/authRoute")
 
 app.use(morgan('dev'))
 app.use(cors())
@@ -15,6 +17,8 @@ app.use(express.json())
 
 
 app.use('/api/events', eventRoute);   
+app.use("/api/user",userRoute)
+app.use("/auth",authRoute)
 
 // Default route
 app.get('/', (req, res) => {

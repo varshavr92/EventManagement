@@ -17,7 +17,7 @@ exports.registerUser=async(req,res)=>{
         const newUser=new userModel({
             name,email,phone,password
         })
-        await new userModel.save()
+        await newUser.save()
         res.status(201).json({message:"User registered successfully"})
     }
     catch(error){
